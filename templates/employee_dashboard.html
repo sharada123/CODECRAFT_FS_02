@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load static  %}
+{% block 'main' %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            WELCOME {{user.username|upper}}
+        </div>
+    </div>
+    <div class="row mt-4">
+        <div class="col-md-12">
+            <div class="card text-center">
+                <div class="card-header">
+                  Employee Details
+                </div>
+                <div class="card-body">
+                  <h5 class="card-title">{{user.username|upper}}</h5>
+                  <p class="card-text">{{user.email}}</p>
+                  <p class="card-text">{{user.role|capfirst}}</p>
+                </div>
+                
+              </div>
+        </div>
+    </div>
+    
+</div>
+
+{% endblock 'main' %}

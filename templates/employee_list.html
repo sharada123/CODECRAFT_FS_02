@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% load static  %}
+{% block 'main' %}
+<din class="container">
+    <div class="row">
+        <div class="col-12">
+            <a class="btn btn-dark  mx-5 my-5" href="{% url 'employee_create' %}">ADD EMPLOYEE</a>
+            <table class="table ms-2 me-2">
+                <thead>
+                  <tr>
+                    <th scope="col">SR.NO.</th>
+                    <th scope="col">Name of Employee</th>
+                    <th scope="col">Email Address</th>
+                    <th scope="col">Department</th>
+                    <th scope="col">Salary</th>
+                    <th scope="col">date_of_joining</th>
+                    <th scope="col">Phone Number</th>
+                    <th scope="col">Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {% for employee in employees %}
+                  <tr>
+                    <th scope="row">{{forloop.counter}}</th>
+                    <td>{{employee.first_name|capfirst}}&nbsp;{{employee.last_name|capfirst}}</td>
+                    <td>{{employee.email}}</td>
+                    <td>{{employee.department|capfirst}}</td>
+                    <td>{{employee.salary}}</td>
+                    <td>{{employee.date_of_joining}}</td>
+                    <td>{{employee.phone}}</td>
+                  <td><a href="{%url 'employee_update' employee.id%}" class="btn btn-sm btn-dark">Update</a>&nbsp;
+                    <a href="{%url 'employee_delete' employee.id%}" class="btn btn-sm btn-dark">Delete</a></td>
+                  </tr>
+                  {% endfor %}
+                </tbody>
+              </table>
+        </div>
+    </div>
+</din>
+
+{% endblock 'main' %}
