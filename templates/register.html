@@ -1,6 +1,26 @@
-<form  method="post">
-    {% csrf_token %}
-    {{form.as_p}}
-    <button type="submit">Sign Up</button>
-    <a href="{% url 'login' %}">Already user? Login Here</a>
-</form>
+{% extends 'base.html' %}
+{% load static %}
+
+{% block 'main' %}
+<div class="container">
+    <div class="row mt-5">
+        <div class="col-md-12">
+            <div class="d-flex justify-content-evenly align-items-center">
+                <h1>Sign Up Form &nbsp;<i class="fa-solid fa-arrow-right fa-beat" style="color: #1b1c1d;"></i></h1>
+                <form  method="post" >
+                    {% if erorr %}
+                    <div class="alert alert-danger" role="alert">
+                        {{ error }}
+                    </div>
+                    {% endif %}
+                    {% csrf_token %}
+                    {{form.as_p}}
+                    <button type="submit" class="btn btn-dark me-4">Sign Up</button>
+                    <a href="{% url 'login' %}">Already user? Login Here</a>
+                </form>
+            </div>
+     
+</div>
+</div>
+</div>
+{% endblock 'main' %}

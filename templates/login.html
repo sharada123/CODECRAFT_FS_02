@@ -4,18 +4,21 @@
 {% block 'main' %}
 <div class="container">
     <div class="row mt-5">
-        <div class="col-md-9">
-<form  method="post">
-    {% if erorr %}
-    <div class="alert alert-danger" role="alert">
-        {{ error }}
-    </div>
-    {% endif %}
-    {% csrf_token %}
-    {{form.as_p}}
-    <button type="submit" class="btn btn-dark">Login</button>
-    <a href="{% url 'register' %}" class="ms-3">New User Register</a>
-</form>
+        <div class="col-md-12">
+            <div class="d-flex justify-content-evenly align-items-center">
+                <h1>Login Form &nbsp;<i class="fa-solid fa-arrow-right fa-beat" style="color: #1b1c1d;"></i></h1>
+                <form  method="post" >
+                    {% if erorr %}
+                    <div class="alert alert-danger" role="alert">
+                        {{ error }}
+                    </div>
+                    {% endif %}
+                    {% csrf_token %}
+                    {{form.as_p}}
+                    <button type="submit" class="btn btn-dark">Login</button>
+                    <a href="{% url 'register' %}" class="ms-3">New User Register</a>
+                </form>
+            </div>
      
 </div>
 </div>
