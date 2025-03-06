@@ -28,3 +28,12 @@ class EmployeeForm(forms.ModelForm):
     class Meta:
         model = Employee
         fields = '__all__'
+        widgets={'first_name':forms.TextInput(attrs={'class':'form-control mt-2 ','placeholder':'First Name'}),
+                'last_name':forms.TextInput(attrs={'class':'form-control mt-2 ','placeholder':'Last Name'}),
+                'email':forms.EmailInput(attrs={'class':'form-control mt-2 ','placeholder':'Email'}),
+                'phone':forms.NumberInput(attrs={'class':'form-control mt-2 ','placeholder':'Phone Number'}),
+                'department':forms.TextInput(attrs={'class':'form-control mt-2 ','placeholder':'Department'}),
+                'salary':forms.NumberInput(attrs={'class':'form-control mt-2 ','placeholder':'Salary'}),
+                'date_of_joining':forms.DateInput(attrs={'class':'form-control mt-2 ','placeholder':'Joined Date'}),
+        }
+        

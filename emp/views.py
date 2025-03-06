@@ -87,15 +87,13 @@ def login_view(request):
 
         if form.is_valid():
             username = form.cleaned_data['username']
-            password = request.POST.get('password')  # Use raw password
+            password = request.POST.get('password') 
 
             user = authenticate(request, username=username, password=password)
            
 
             if user:
-                # Send OTP to user's registered email
-               
-                login(request, user)  # Log the user in
+                login(request, user)
                 if user.role == 'admin':
                     return redirect('employee_list')
                 elif user.role == 'employee':
